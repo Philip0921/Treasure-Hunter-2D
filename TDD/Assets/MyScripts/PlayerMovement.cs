@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     float walkSpeed = 4.5f;
     float horizontalmove = 0f;
-    float lockPos;
+    float lockPos = 0;
     bool facingright;
 
     public Rigidbody2D myRb;
