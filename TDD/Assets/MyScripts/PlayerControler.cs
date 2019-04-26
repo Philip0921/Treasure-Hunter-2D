@@ -20,6 +20,7 @@ public class PlayerControler : MonoBehaviour
         if (other.tag == "Trap")
         {
             isDead = true;
+            move.animator.SetBool("IsDead", true);
             Inventory.instance.Coins -= 1;
             Instantiate(bloodEffect, transform.position, transform.rotation.normalized);
             move.myRb.constraints = RigidbodyConstraints2D.FreezeAll;
@@ -38,6 +39,7 @@ public class PlayerControler : MonoBehaviour
             Theplayer.transform.position = spawnPoint.transform.position;
             move.myRb.constraints = RigidbodyConstraints2D.None;
             isDead = false;
+            move.animator.SetBool("IsDead", false);
         }
     }
 }
