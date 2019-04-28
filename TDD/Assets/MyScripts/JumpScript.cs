@@ -42,6 +42,7 @@ public class JumpScript : MonoBehaviour
             jumping = true;
 
             move.animator.SetBool("IsJumping", true);
+            //FindObjectOfType<AudioManager>().Play("Jump");
             grounded = false;
         }
 
@@ -49,6 +50,7 @@ public class JumpScript : MonoBehaviour
         {
             //det här kommer vara samma som de andra scriptet, tryck två gånger för att hoppa högre.
             move.animator.SetBool("IsJumping", true);
+            //FindObjectOfType<AudioManager>().Play("Jump");
             verticalVelocity = 6.5f;
             
         }
@@ -64,6 +66,7 @@ public class JumpScript : MonoBehaviour
             grounded = true;
             jumping = false;
             move.animator.SetBool("IsJumping", false);
+            FindObjectOfType<AudioManager>().Play("Landed");
         }
         //if raycast towarrds ground check if ground
         //if true set grounded to true and jump to false

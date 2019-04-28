@@ -28,6 +28,7 @@ public class ParticalCollision : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             Instantiate(splatPrephab, collisionEvents[i].intersection, Quaternion.Euler(0.0f, 0.0f, Random.Range(0.0f, 360.0f)), splatHolder);
+            FindObjectOfType<AudioManager>().Play("BloodSplatter");
 
         }
     }

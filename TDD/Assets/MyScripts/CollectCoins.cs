@@ -35,6 +35,7 @@ public class CollectCoins : MonoBehaviour
         if (other.tag == "Coin")
         {
             Inventory.instance.Coins++;
+            FindObjectOfType<AudioManager>().Play("Pickup");
             Destroy(other.gameObject);
             UpdatePointsUI();
         }
