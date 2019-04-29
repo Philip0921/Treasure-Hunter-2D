@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Playlist : MonoBehaviour
@@ -11,6 +9,11 @@ public class Playlist : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
 
+        if (sceneName == "Menu")
+        {
+            AudioManager.instance.Play("MainMusic");
+            AudioManager.instance.Stop("GameMusic");
+        }
 
         if (sceneName == "Level1")
         {
@@ -24,11 +27,6 @@ public class Playlist : MonoBehaviour
             AudioManager.instance.Play("GameMusic");
         }
 
-        if (sceneName == "Menu")
-        {
-            AudioManager.instance.Play("MainMusic");
-            AudioManager.instance.Stop("GameMusic");
-        }
 
         if (sceneName == "GameOver")
         {

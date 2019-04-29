@@ -6,6 +6,7 @@ public class JumpScript : MonoBehaviour
 
     bool grounded = true;
     public bool jumping = false;
+    bool inAir = false;
     float jumpspeed = 1.5f;
     float verticalVelocity;
     float increesvelocity;
@@ -28,7 +29,6 @@ public class JumpScript : MonoBehaviour
         rb.gravityScale = 1.5f;
         jump();
         CheckGround();
-
     }
 
 
@@ -40,6 +40,9 @@ public class JumpScript : MonoBehaviour
             verticalVelocity = 5;
             rb.velocity = new Vector2(rb.velocity.x, verticalVelocity) * jumpspeed;
             jumping = true;
+            inAir = true;
+
+            //StartCoroutine(JumpedOnceLanded());
 
             move.animator.SetBool("IsJumping", true);
             //FindObjectOfType<AudioManager>().Play("Jump");
@@ -52,7 +55,7 @@ public class JumpScript : MonoBehaviour
             move.animator.SetBool("IsJumping", true);
             //FindObjectOfType<AudioManager>().Play("Jump");
             verticalVelocity = 6.5f;
-            
+
         }
 
     }
@@ -61,15 +64,38 @@ public class JumpScript : MonoBehaviour
     {
         verticalVelocity = -Time.deltaTime;
 
+        if (inAir == true && jumping == true)
+        {
+
+            if (Physics2D.Raycast(rb.transform.position, Vector2.down, range, ground))
+            {
+                FindObjectOfType<AudioManager>().Play("Landed");
+            }
+
+        }
+
         if (Physics2D.Raycast(rb.transform.position, Vector2.down, range, ground))
         {
             grounded = true;
+            inAir = false;
             jumping = false;
             move.animator.SetBool("IsJumping", false);
-            FindObjectOfType<AudioManager>().Play("Landed");
+
         }
         //if raycast towarrds ground check if ground
         //if true set grounded to true and jump to false
         //rb velocity starx över noll negative time.deltatime
     }
+
+    //IEnumerator JumpedOnceLanded()
+    //{
+    //    yield return new WaitForSeconds(1f);
+
+    //    if (grounded == true)
+    //    {
+    //        FindObjectOfType<AudioManager>().Play("Landed");
+    //    }
+
+    //}
+
 }
