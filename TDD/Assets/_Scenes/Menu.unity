@@ -364,13 +364,13 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: MainMusic
     clip: {fileID: 8300000, guid: 7d936863064bb944c9d6db01bfff0c53, type: 3}
-    volume: 1
+    volume: 0.6
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: GameMusic
     clip: {fileID: 8300000, guid: 578f76f1febc0994fb8eb636091c6217, type: 3}
-    volume: 1
+    volume: 0.6
     pitch: 1
     loop: 1
     source: {fileID: 0}

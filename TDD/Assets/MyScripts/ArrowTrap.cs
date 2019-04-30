@@ -25,6 +25,7 @@ public class ArrowTrap : MonoBehaviour
         if (other.tag == "Player")
         {
             inside = false;
+            StopCoroutine(SpawnArrow());
         }
     }
 
@@ -39,6 +40,7 @@ public class ArrowTrap : MonoBehaviour
             arrowRB.velocity = new Vector2(force, 0);
 
             yield return new WaitForSeconds(4);
+
         }
     }
 

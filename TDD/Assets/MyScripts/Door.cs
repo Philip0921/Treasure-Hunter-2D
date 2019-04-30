@@ -2,22 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour
 {
-
-    public GameObject EnterButton;
+    public Text Open;
+    bool openDoor = false;
 
     public void Start()
     {
-        EnterButton.SetActive(false);
+        Open.text = "Press Enter To Open";
+        Open.GetComponent<Text>().enabled = false;
+    }
+
+    void Update()
+    {
+        if (Input.GetButtonDown("Open") && openDoor == true)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
-            EnterButton.SetActive(true);
+            openDoor = true;
+            Open.GetComponent<Text>().enabled = true;
 
         }
     }
@@ -26,7 +37,8 @@ public class Door : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            EnterButton.SetActive(false);
+            openDoor = false;
+            Open.GetComponent<Text>().enabled = false;
         }
     }
 }
