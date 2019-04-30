@@ -29,7 +29,7 @@ public class SceneChanger: MonoBehaviour
 
     public void GameOver()
     {
-        Inventory.instance.Coins = 0;
+        Inventory.INSTANCE.Coins = 0;
         SceneManager.LoadScene(3);
     }
 

@@ -22,7 +22,7 @@ public class PlayerControler : MonoBehaviour
             isDead = true;
             move.animator.SetBool("IsDead", true);
             FindObjectOfType<AudioManager>().Play("Die");
-            Inventory.instance.Coins -= 1;
+            Inventory.INSTANCE.Coins -= 1;
             Instantiate(bloodEffect, transform.position, transform.rotation.normalized);
             move.myRb.constraints = RigidbodyConstraints2D.FreezeAll;
             StartCoroutine(Respawn());

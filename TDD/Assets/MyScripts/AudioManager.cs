@@ -8,12 +8,12 @@ public class AudioManager : MonoBehaviour
     //Made by Philip Åkerblom GP18 YRGO!
 
     public Sound[] sounds;
-    public static AudioManager instance;
+    public static AudioManager INSTANCE;
 
     void Awake()
     {
-        if (instance == null)
-            instance = this;
+        if (INSTANCE == null)
+            INSTANCE = this;
         else
         {
             Destroy(gameObject);

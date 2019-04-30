@@ -10,7 +10,7 @@ public class CollectCoins : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CoinsText.text = "Coins: " + Inventory.instance.Coins;
+        CoinsText.text = "Coins: " + Inventory.INSTANCE.Coins + " / 15";
     }
 
     // Update is called once per frame
@@ -21,12 +21,12 @@ public class CollectCoins : MonoBehaviour
             UpdatePointsUI();
         }
 
-        if (Inventory.instance.Coins <= 0)
+        if (Inventory.INSTANCE.Coins <= 0)
         {
-            Inventory.instance.Coins = Mathf.Clamp(Inventory.instance.Coins, 0, 1000);
+            Inventory.INSTANCE.Coins = Mathf.Clamp(Inventory.INSTANCE.Coins, 0, 1000);
         }
 
-        currentCoins = Inventory.instance.Coins;
+        currentCoins = Inventory.INSTANCE.Coins;
 
     }
 
@@ -34,7 +34,7 @@ public class CollectCoins : MonoBehaviour
     {
         if (other.tag == "Coin")
         {
-            Inventory.instance.Coins++;
+            Inventory.INSTANCE.Coins++;
             FindObjectOfType<AudioManager>().Play("Pickup");
             Destroy(other.gameObject);
             UpdatePointsUI();
@@ -43,7 +43,7 @@ public class CollectCoins : MonoBehaviour
 
     public void UpdatePointsUI()
     {
-        CoinsText.text = "Coins: " + Inventory.instance.Coins;
+        CoinsText.text = "Coins: " + Inventory.INSTANCE.Coins + " / 15";
     }
 
 }

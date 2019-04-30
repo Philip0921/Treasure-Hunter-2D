@@ -11,13 +11,13 @@ public class Playlist : MonoBehaviour
 
         if (sceneName == "Menu")
         {
-            AudioManager.instance.Play("MainMusic");
+            AudioManager.INSTANCE.Play("MainMusic");
         }
 
         if (sceneName == "Level1")
         {
-            AudioManager.instance.Stop("MainMusic");
-            AudioManager.instance.Play("GameMusic");
+            AudioManager.INSTANCE.Stop("MainMusic");
+            AudioManager.INSTANCE.Play("GameMusic");
         }
 
         //if (sceneName == "Level2")
@@ -29,8 +29,8 @@ public class Playlist : MonoBehaviour
 
         if (sceneName == "GameOver")
         {
-            AudioManager.instance.Play("MainMusic");
-            AudioManager.instance.Stop("GameMusic");
+            AudioManager.INSTANCE.Play("MainMusic");
+            AudioManager.INSTANCE.Stop("GameMusic");
         }
     }
 

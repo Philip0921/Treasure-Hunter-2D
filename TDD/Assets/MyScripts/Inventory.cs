@@ -7,16 +7,16 @@ using System;
 
 public class Inventory : MonoBehaviour
 {
-    public static Inventory instance;
+    public static Inventory INSTANCE;
     CollectCoins coins;
     public int Coins;
 
 
     public void Awake()
     {
-        if (instance == null)
+        if (INSTANCE == null)
         {
-            instance = this;
+            INSTANCE = this;
             DontDestroyOnLoad(this.gameObject);
         }
 
