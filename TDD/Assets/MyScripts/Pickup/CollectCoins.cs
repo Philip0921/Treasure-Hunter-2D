@@ -10,7 +10,7 @@ public class CollectCoins : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CoinsText.text = "Coins: " + Inventory.INSTANCE.Coins + " / 15";
+        CoinsText.text = "Coins: " + Inventory.INSTANCE.Coins + " / 10";
     }
 
     // Update is called once per frame
@@ -34,7 +34,7 @@ public class CollectCoins : MonoBehaviour
     {
         if (other.tag == "Coin")
         {
-            Inventory.INSTANCE.Coins++;
+            Inventory.INSTANCE.Coins += 1;
             FindObjectOfType<AudioManager>().Play("Pickup");
             Destroy(other.gameObject);
             UpdatePointsUI();
@@ -43,7 +43,7 @@ public class CollectCoins : MonoBehaviour
 
     public void UpdatePointsUI()
     {
-        CoinsText.text = "Coins: " + Inventory.INSTANCE.Coins + " / 15";
+        CoinsText.text = "Coins: " + Inventory.INSTANCE.Coins + " / 10";
     }
 
 }

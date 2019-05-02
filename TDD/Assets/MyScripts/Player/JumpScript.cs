@@ -6,8 +6,8 @@ public class JumpScript : MonoBehaviour
 
     bool grounded = true;
     public bool jumping = false;
-    bool inAir = false;
     float jumpspeed = 1.5f;
+    int jumpPressed;
     float verticalVelocity;
     float increesvelocity;
     float decreesvelocity;
@@ -17,16 +17,19 @@ public class JumpScript : MonoBehaviour
     public LayerMask ground;
     public PlayerMovement move;
 
+    int jumpCount;
+
+
     // Start is called before the first frame update
     void Start()
     {
-
+        jumpCount = 2;
+        rb.gravityScale = 1.5f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        rb.gravityScale = 1.5f;
         jump();
         CheckGround();
     }
@@ -35,27 +38,21 @@ public class JumpScript : MonoBehaviour
     void jump()
     {
 
-        if (Input.GetKeyDown(KeyCode.Space) && grounded == true && jumping == false)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
+            if (jumpCount == 0)
+            {
+                return;
+            }
+
+            jumpCount--;
+
             verticalVelocity = 5;
             rb.velocity = new Vector2(rb.velocity.x, verticalVelocity) * jumpspeed;
             jumping = true;
-            inAir = true;
-
-            //StartCoroutine(JumpedOnceLanded());
-
             move.animator.SetBool("IsJumping", true);
             //FindObjectOfType<AudioManager>().Play("Jump");
             grounded = false;
-        }
-
-        if (Input.GetKey(KeyCode.Space))
-        {
-            //det här kommer vara samma som de andra scriptet, tryck två gånger för att hoppa högre.
-            move.animator.SetBool("IsJumping", true);
-            //FindObjectOfType<AudioManager>().Play("Jump");
-            verticalVelocity = 6.5f;
-
         }
 
     }
@@ -64,20 +61,11 @@ public class JumpScript : MonoBehaviour
     {
         verticalVelocity = -Time.deltaTime;
 
-        if (inAir == true && jumping == true)
+        if (Physics2D.Raycast(rb.transform.position, Vector2.down, range, ground) && rb.velocity.y < 0 && !grounded)
         {
-
-            if (Physics2D.Raycast(rb.transform.position, Vector2.down, range, ground))
-            {
-                FindObjectOfType<AudioManager>().Play("Landed");
-            }
-
-        }
-
-        if (Physics2D.Raycast(rb.transform.position, Vector2.down, range, ground))
-        {
+            FindObjectOfType<AudioManager>().Play("Landed");
             grounded = true;
-            inAir = false;
+            jumpCount = 2;
             jumping = false;
             move.animator.SetBool("IsJumping", false);
 
@@ -86,16 +74,5 @@ public class JumpScript : MonoBehaviour
         //if true set grounded to true and jump to false
         //rb velocity starx över noll negative time.deltatime
     }
-
-    //IEnumerator JumpedOnceLanded()
-    //{
-    //    yield return new WaitForSeconds(1f);
-
-    //    if (grounded == true)
-    //    {
-    //        FindObjectOfType<AudioManager>().Play("Landed");
-    //    }
-
-    //}
 
 }

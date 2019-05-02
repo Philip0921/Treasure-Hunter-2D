@@ -16,7 +16,7 @@ public class ParticalCollision : MonoBehaviour
 
     private void Update()
     {
-        Destroy(gameObject, 22f);
+        Destroy(gameObject, 55f);
     }
 
     private void OnParticleCollision(GameObject other)

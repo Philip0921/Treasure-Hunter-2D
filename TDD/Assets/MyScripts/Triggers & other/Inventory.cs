@@ -9,6 +9,8 @@ public class Inventory : MonoBehaviour
 {
     public static Inventory INSTANCE;
     CollectCoins coins;
+    Skull skull;
+    public int skulls;
     public int Coins;
 
 
@@ -29,5 +31,6 @@ public class Inventory : MonoBehaviour
     public void Start()
     {
         coins = FindObjectOfType<CollectCoins>();
+        skull = FindObjectOfType<Skull>();
     }
 }

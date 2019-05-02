@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger: MonoBehaviour
 {
-
+    PlayerMovement movable;
     // Start is called before the first frame update
     void Start()
     {
-        
+        movable = FindObjectOfType<PlayerMovement>();
     }
 
     public void Menu()

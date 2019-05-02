@@ -17,9 +17,17 @@ public class Door : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Open") && openDoor == true)
+        if (Input.GetButtonDown("Open") && openDoor == true && Inventory.INSTANCE.Coins >= 10)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        if (Inventory.INSTANCE.Coins < 10)
+        {
+            Open.text = "Not enough Coins!";
+        }
+        else
+        {
+            Open.text = "Press Enter To Open";
         }
     }
 

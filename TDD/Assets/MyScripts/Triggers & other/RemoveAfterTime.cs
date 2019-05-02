@@ -41,7 +41,7 @@ public class RemoveAfterTime : MonoBehaviour
         float value = 1;
         while ( value > 0 )
         {
-            value -= Time.deltaTime * 0.05f;
+            value -= Time.deltaTime * 0.01f;
             if (sprite)
             {
                 sprite.color = new Color(color.r, color.g, color.b, value);
