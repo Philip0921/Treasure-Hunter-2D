@@ -30,6 +30,7 @@ public class SceneChanger: MonoBehaviour
     public void GameOver()
     {
         Inventory.INSTANCE.Coins = 0;
+        Inventory.INSTANCE.skulls = 0;
         SceneManager.LoadScene(3);
     }
 
