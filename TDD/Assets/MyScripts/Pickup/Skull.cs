@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class Skull : MonoBehaviour
 {
-    int skull;
+    public int currentskulls;
     public PlayerControler player;
     public Text skullText;
 
@@ -25,6 +25,9 @@ public class Skull : MonoBehaviour
         {
             Inventory.INSTANCE.skulls = Mathf.Clamp(Inventory.INSTANCE.skulls, 0, 1000);
         }
+
+
+        currentskulls = Inventory.INSTANCE.skulls;
     }
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -42,4 +45,5 @@ public class Skull : MonoBehaviour
     {
         skullText.text = "Skull: " + Inventory.INSTANCE.skulls + " / 2";
     }
+
 }

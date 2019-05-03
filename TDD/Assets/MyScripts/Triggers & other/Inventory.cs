@@ -33,4 +33,14 @@ public class Inventory : MonoBehaviour
         coins = FindObjectOfType<CollectCoins>();
         skull = FindObjectOfType<Skull>();
     }
+
+    public void Reset()
+    {
+        Coins = 0;
+        skulls = 0;
+        skull.UpdateSkullUI();
+        coins.UpdatePointsUI();
+
+
+    }
 }

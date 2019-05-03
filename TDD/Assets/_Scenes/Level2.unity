@@ -2021,6 +2021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 506612a3c98b9744ea0e6aa14c69f0f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentskulls: 0
   player: {fileID: 673901535}
   skullText: {fileID: 1672998551}
 --- !u!1 &694013346
@@ -9351,7 +9352,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 6
   m_Sprite: {fileID: 21300024, guid: 8cdd847ab4f914d4cb3d23e9eb98958d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

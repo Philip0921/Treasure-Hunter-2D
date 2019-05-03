@@ -5,11 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger: MonoBehaviour
 {
-    PlayerMovement movable;
     // Start is called before the first frame update
     void Start()
     {
-        movable = FindObjectOfType<PlayerMovement>();
+
     }
 
     public void Menu()
@@ -29,8 +28,6 @@ public class SceneChanger: MonoBehaviour
 
     public void GameOver()
     {
-        Inventory.INSTANCE.Coins = 0;
-        Inventory.INSTANCE.skulls = 0;
         SceneManager.LoadScene(3);
     }
 
