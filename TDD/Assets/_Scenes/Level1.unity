@@ -8809,6 +8809,7 @@ MonoBehaviour:
   currentCoins: 0
   player: {fileID: 753627253}
   CoinsText: {fileID: 2005631997}
+  pointsneeded: 10
 --- !u!58 &753627261
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -8837,6 +8838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 506612a3c98b9744ea0e6aa14c69f0f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentskulls: 0
   player: {fileID: 753627253}
   skullText: {fileID: 377428964}
 --- !u!1 &754010094
@@ -12145,6 +12147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Open: {fileID: 269781346}
+  openDoor: 0
 --- !u!1 &1876212383
 GameObject:
   m_ObjectHideFlags: 0

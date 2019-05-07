@@ -482,7 +482,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 2087224221}
-        m_MethodName: Reset
+        m_MethodName: RemoveSkull
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -893,7 +893,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2087224221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -903,11 +903,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2087224220}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47bb27f8a732cca459a1b3f4645fcece, type: 3}
+  m_Script: {fileID: 11500000, guid: 506612a3c98b9744ea0e6aa14c69f0f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skulls: 0
-  Coins: 0
+  currentskulls: 0
+  player: {fileID: 0}
+  skullText: {fileID: 0}
 --- !u!4 &2087224222
 Transform:
   m_ObjectHideFlags: 0

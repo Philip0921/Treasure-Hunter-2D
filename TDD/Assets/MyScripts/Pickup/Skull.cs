@@ -46,4 +46,8 @@ public class Skull : MonoBehaviour
         skullText.text = "Skull: " + Inventory.INSTANCE.skulls + " / 2";
     }
 
+    public void RemoveSkull()
+    {
+        Inventory.INSTANCE.skulls = 0;
+    }
 }

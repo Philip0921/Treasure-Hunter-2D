@@ -6,22 +6,21 @@ using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour
 {
+    CollectCoins coins;
     public Text Open;
-    bool openDoor = false;
+    public bool openDoor = false;
 
     public void Start()
     {
         Open.text = "Press Enter To Open";
         Open.GetComponent<Text>().enabled = false;
+        coins = FindObjectOfType<CollectCoins>();
     }
 
     void Update()
     {
-        if (Input.GetButtonDown("Open") && openDoor == true && Inventory.INSTANCE.Coins >= 10)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
-        if (Inventory.INSTANCE.Coins < 10)
+
+        if (Inventory.INSTANCE.Coins < coins.pointsneeded)
         {
             Open.text = "Not enough Coins!";
         }
